@@ -8,6 +8,7 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { WebBadge } from '@/components/web-badge';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+import { usuario } from './Nexus/login';
 
 function getDevMenuHint() {
   if (Platform.OS === 'web') {
@@ -33,9 +34,8 @@ export default function HomeScreen() {
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
           <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
+           Olá, {usuario}
           </ThemedText>
         </ThemedView>
 
@@ -64,26 +64,25 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     flexDirection: 'row',
   },
   safeArea: {
     flex: 1,
-    paddingHorizontal: Spacing.four,
-    alignItems: 'center',
+    paddingHorizontal: 30,
     gap: Spacing.three,
     paddingBottom: BottomTabInset + Spacing.three,
     maxWidth: MaxContentWidth,
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    padding: 90,
   },
   heroSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
     flex: 1,
     paddingHorizontal: Spacing.four,
     gap: Spacing.four,
   },
   title: {
-    textAlign: 'center',
+    textAlign: "center"
   },
   code: {
     textTransform: 'uppercase',
