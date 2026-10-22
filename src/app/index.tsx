@@ -1,5 +1,5 @@
 import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, StyleSheet, Text, View, Image} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AnimatedIcon } from '@/components/animated-icon';
@@ -37,22 +37,27 @@ export default function HomeScreen() {
           <ThemedText type="title" style={styles.title}>
            Olá, {usuario}
           </ThemedText>
+          <Text style={styles.text}>Aqui está o resumo do dia:</Text>
+            <View style={styles.props}>
+            <Image 
+            source={{uri: "https://upload.wikimedia.org/wikipedia/commons/4/44/Eo_circle_deep-purple_checkmark.svg"}}
+            style={styles.img}
+            ></Image>
+            <Text style={styles.tabela}>
+              Tarefas
+            </Text>
+          </View>
+          <View style={styles.props}>
+            <Image
+            source={{uri: "'"}}
+            style={styles.img}></Image>
+            <Text style={styles.tabela}>
+              Metas
+            </Text>
+          </View>
         </ThemedView>
-
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
-
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
-          />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
+        <ThemedView>
+        
         </ThemedView>
 
         {Platform.OS === 'web' && <WebBadge />}
@@ -78,11 +83,11 @@ const styles = StyleSheet.create({
   },
   heroSection: {
     flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
+    paddingHorizontal: 10,
+    gap: 10,
   },
   title: {
-    textAlign: "center"
+    textAlign: "left"
   },
   code: {
     textTransform: 'uppercase',
@@ -93,5 +98,30 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.three,
     paddingVertical: Spacing.four,
     borderRadius: Spacing.four,
+  },
+  text: {
+    fontSize: 20,
+    color: "#ffffff",
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+  },
+  props: {
+    backgroundColor: "#16161E",
+    width: 500,
+    height: 159,
+    borderRadius: 15,
+    alignItems: 'center',
+    gap: 16,
+    paddingHorizontal: Spacing.four,
+    paddingVertical: Spacing.four,
+  },
+  tabela: {
+    color: "#ffffff",
+    fontSize: 25,
+    fontWeight: "bold",
+  },
+  img: {
+    width: 40,
+    height: 40,
   },
 });
